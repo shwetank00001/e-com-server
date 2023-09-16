@@ -1,8 +1,12 @@
 const express = require('express')
 require('./db/connect')
 const cors = require('cors')
-const items = require('./routes/itemRoute')
 const bodyParser = require('body-parser')
+
+
+const items = require('./routes/itemRoute')
+const cart = require('./routes/cartRoute')
+
 
 const app= express()
 
@@ -19,6 +23,7 @@ app.get("/", (req,res) => {
 })
 
 app.use('/items', items)
+app.use('/cart', cart)
 
 app.listen(5000, () =>{
     console.log("APP ON PORT 5000")

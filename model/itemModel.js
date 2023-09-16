@@ -3,7 +3,11 @@ const mongoose = require('mongoose')
 const itemSchema = new mongoose.Schema({
     title: String,
     description: String,
-    selectedFile: String
+
+    selectedFile: {
+        type: String, 
+        required: [true, 'Add img']
+    }
 
 })
 
