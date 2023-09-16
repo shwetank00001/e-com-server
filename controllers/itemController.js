@@ -20,8 +20,26 @@ async function createItem(req,res){
 }
 
 
+async function deleteItem(req,res){
+    try {
+        const { id : userID} = req.params
+        const deleted = await ItemModel.findByIdAndDelete( { _id: userID })
+
+        if(!deleted){
+            res.send("Item Not Present")
+        }
+        res.json({"Value deleted" : deleted})        
+    } catch (error) {
+        res.send(error)
+        console.log(error)
+        
+    }
+}
+
+
 
 module.exports ={
     getAllItems,
-    createItem
+    createItem,
+    deleteItem
 }
