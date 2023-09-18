@@ -26,7 +26,7 @@ async function addToCart(req, res) {
   }
 }
 
-module.exports = {
+module.exports = {     
   showCartItem,
   addToCart,
 };
